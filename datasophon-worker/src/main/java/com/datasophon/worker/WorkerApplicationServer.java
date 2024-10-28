@@ -115,6 +115,7 @@ public class WorkerApplicationServer {
         userMap.put("kyuubi", HADOOP);
         userMap.put("flink", HADOOP);
         userMap.put("elastic", "elastic");
+        userMap.put("zookeeper", "zookeeper");
     }
     
     private static void createDefaultUser(Map<String, String> userMap) {

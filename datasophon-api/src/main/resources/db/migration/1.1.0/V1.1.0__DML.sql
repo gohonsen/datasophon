@@ -381,6 +381,7 @@ INSERT INTO `t_ddh_install_step` VALUES (9, '服务安装启动', NULL, 1);
 -- ----------------------------
 INSERT INTO `t_ddh_cluster_group` VALUES (1, 'hadoop', 1);
 INSERT INTO `t_ddh_cluster_group` VALUES (2, 'elastic', 1);
+INSERT INTO `t_ddh_cluster_group` VALUES (3, 'zookeeper', 1);
 
 -- ----------------------------
 -- Records of t_ddh_cluster_user
@@ -392,6 +393,8 @@ INSERT INTO `t_ddh_cluster_user` VALUES (4, 'mapred', 1);
 INSERT INTO `t_ddh_cluster_user` VALUES (5, 'elastic', 1);
 INSERT INTO `t_ddh_cluster_user` VALUES (6, 'hbase', 1);
 INSERT INTO `t_ddh_cluster_user` VALUES (9, 'admin', 1);
+INSERT INTO `t_ddh_cluster_user` VALUES (10, 'hadoop', 1);
+INSERT INTO `t_ddh_cluster_user` VALUES (11, 'zookeeper', 1);
 
 -- ----------------------------
 -- Records of t_ddh_cluster_user_group
@@ -403,6 +406,8 @@ INSERT INTO `t_ddh_cluster_user_group` VALUES (4, 4, 1, 1, 1);
 INSERT INTO `t_ddh_cluster_user_group` VALUES (5, 5, 2, 1, 1);
 INSERT INTO `t_ddh_cluster_user_group` VALUES (6, 6, 1, 1, 1);
 INSERT INTO `t_ddh_cluster_user_group` VALUES (11, 9, 1, 1, 1);
+INSERT INTO `t_ddh_cluster_user_group` VALUES (12, 10, 1, 1, 1);
+INSERT INTO `t_ddh_cluster_user_group` VALUES (13, 11, 3, 1, 1);
 
 -- ----------------------------
 -- Records of t_ddh_session
