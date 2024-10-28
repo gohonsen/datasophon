@@ -2,18 +2,26 @@
   "name": "ZOOKEEPER",
   "label": "ZooKeeper",
   "description": "分布式协调系统",
-  "version": "3.5.10",
+  "version": "3.6.4",
   "sortNum": 3,
   "dependencies":[],
-  "packageName": "zookeeper-3.5.10.tar.gz",
-  "decompressPackageName": "zookeeper-3.5.10",
+  "packageName": "zookeeper-3.6.4.tar.gz",
+  "decompressPackageName": "zookeeper-3.6.4",
+  "runAs": {
+    "user": "zookeeper",
+    "group": "zookeeper"
+  },
   "roles": [
     {
       "name": "ZkServer",
       "label": "ZkServer",
       "roleType": "master",
+      "runAs": {
+        "user": "zookeeper",
+        "group": "zookeeper"
+      },
       "cardinality": "1+",
-      "logFile": "logs/zookeeper-root-server-${host}.out",
+      "logFile": "logs/zookeeper-zookeeper-server-${host}.out",
       "jmxPort": 2191,
       "startRunner": {
         "timeout": "60",
@@ -67,6 +75,10 @@
           "authProvider.1",
           "jaasLoginRenew",
           "skipACL",
+          "maxClientCnxns",
+          "autopurge.snapRetainCount",
+          "autopurge.purgeInterval",
+          "4lw.commands.whitelist",
           "custom.zoo.cfg"
         ]
       },
@@ -188,6 +200,50 @@
       "configurableInWizard": true,
       "hidden": false,
       "defaultValue": "yes"
+    },
+    {
+      "name": "maxClientCnxns",
+      "label": "最大客户端连接数",
+      "description": "可以接受的最大客户端连接数",
+      "required": true,
+      "type": "input",
+      "value": "600",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "600"
+    },
+    {
+      "name": "autopurge.snapRetainCount",
+      "label": "自动清理策略保留快照个数",
+      "description": "自动清理策略保留快照个数, 3.4.0 版本开始有自动清理功能, 最低为3",
+      "required": true,
+      "type": "input",
+      "value": "3",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "3"
+    },
+    {
+      "name": "autopurge.purgeInterval",
+      "label": "自动清理策略清理时间间隔",
+      "description": "自动清理策略清理时间间隔,0或负数表示不启用自动清理,单位: 小时",
+      "required": true,
+      "type": "input",
+      "value": "3",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "3"
+    },
+    {
+      "name": "4lw.commands.whitelist",
+      "label": "四字运维命令白名单列表",
+      "description": "部分开启白名单列表逗号分隔,全部开启用*通配符",
+      "required": true,
+      "type": "input",
+      "value": "stat, ruok, conf, isro, mntr",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "stat, ruok, conf, isro, mntr"
     },
     {
       "name": "enableKerberos",

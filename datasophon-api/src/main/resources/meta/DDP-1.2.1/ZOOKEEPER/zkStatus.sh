@@ -28,6 +28,7 @@ shift
 command=$1
 SH_DIR=`dirname $0`
 
+source ~/.bash_profile
 
 status(){
   echo "start check $command status"
