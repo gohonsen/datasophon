@@ -131,18 +131,6 @@
       "defaultValue": "/data/zookeeper"
     },
     {
-      "name": "dataLogDir",
-      "label": "事务日志存储目录",
-      "description": "指定事务日志的存放目录",
-      "configType": "path",
-      "required": true,
-      "type": "input",
-      "value": "",
-      "configurableInWizard": true,
-      "hidden": false,
-      "defaultValue": "/data/log"
-    },
-    {
       "name": "tickTime",
       "label": "心跳时间(毫秒)",
       "description": "Zookeeper服务器与客户端心跳时间，单位毫秒",
@@ -229,10 +217,10 @@
       "description": "自动清理策略清理时间间隔,0或负数表示不启用自动清理,单位: 小时",
       "required": true,
       "type": "input",
-      "value": "3",
+      "value": "24",
       "configurableInWizard": true,
       "hidden": false,
-      "defaultValue": "3"
+      "defaultValue": "24"
     },
     {
       "name": "4lw.commands.whitelist",
