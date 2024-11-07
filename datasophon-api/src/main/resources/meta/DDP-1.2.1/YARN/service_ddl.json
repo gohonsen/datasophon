@@ -14,11 +14,11 @@
       "roleType": "master",
       "cardinality": "1+",
       "runAs": {
-        "user": "yarn",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "sortNum": 1,
-      "logFile": "logs/hadoop-yarn-resourcemanager-${host}.log",
+      "logFile": "logs/hadoop-hadoop-resourcemanager-${host}.log",
       "jmxPort": 9323,
       "startRunner": {
         "timeout": "60",
@@ -64,11 +64,11 @@
       "roleType": "worker",
       "cardinality": "1+",
       "runAs": {
-        "user": "yarn",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "sortNum": 3,
-      "logFile": "logs/hadoop-yarn-nodemanager-${host}.log",
+      "logFile": "logs/hadoop-hadoop-nodemanager-${host}.log",
       "jmxPort": 9324,
       "startRunner": {
         "timeout": "60",
@@ -98,13 +98,13 @@
       "name": "HistoryServer",
       "label": "HistoryServer",
       "roleType": "master",
-      "cardinality": "1",
+      "cardinality": "1+",
       "runAs": {
-        "user": "mapred",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "sortNum": 2,
-      "logFile": "logs/hadoop-mapred-historyserver-${host}.log",
+      "logFile": "logs/hadoop-hadoop-historyserver-${host}.log",
       "jmxPort": 9325,
       "startRunner": {
         "timeout": "60",
@@ -135,7 +135,7 @@
       "roleType": "client",
       "cardinality": "1+",
       "runAs": {
-        "user": "yarn",
+        "user": "hadoop",
         "group": "hadoop"
       }
     }

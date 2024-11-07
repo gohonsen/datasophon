@@ -15,12 +15,12 @@
       "label": "JournalNode",
       "roleType": "master",
       "runAs": {
-        "user": "hdfs",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "cardinality": "1+",
       "sortNum": 1,
-      "logFile": "${hadoopLogDir}/hadoop-hdfs-journalnode-${host}.log",
+      "logFile": "${hadoopLogDir}/hadoop-hadoop-journalnode-${host}.log",
       "jmxPort": 27003,
       "startRunner": {
         "timeout": "60",
@@ -52,12 +52,12 @@
       "label": "NameNode",
       "roleType": "master",
       "runAs": {
-        "user": "hdfs",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "cardinality": "1+",
       "sortNum": 2,
-      "logFile": "${hadoopLogDir}/hadoop-hdfs-namenode-${host}.log",
+      "logFile": "${hadoopLogDir}/hadoop-hadoop-namenode-${host}.log",
       "jmxPort": "27001",
       "startRunner": {
         "timeout": "60",
@@ -102,12 +102,12 @@
       "label": "DataNode",
       "roleType": "worker",
       "runAs": {
-        "user": "hdfs",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "cardinality": "1+",
       "sortNum": 5,
-      "logFile": "${hadoopLogDir}/hadoop-hdfs-datanode-${host}.log",
+      "logFile": "${hadoopLogDir}/hadoop-hadoop-datanode-${host}.log",
       "jmxPort": "27002",
       "startRunner": {
         "timeout": "60",
@@ -139,12 +139,12 @@
       "label": "ZKFC",
       "roleType": "master",
       "runAs": {
-        "user": "hdfs",
+        "user": "hadoop",
         "group": "hadoop"
       },
       "cardinality": "1+",
       "sortNum": 3,
-      "logFile": "${hadoopLogDir}/hadoop-hdfs-zkfc-${host}.log",
+      "logFile": "${hadoopLogDir}/hadoop-hadoop-zkfc-${host}.log",
       "jmxPort": 27004,
       "startRunner": {
         "timeout": "60",
@@ -177,7 +177,7 @@
       "roleType": "client",
       "cardinality": "1+",
       "runAs": {
-        "user": "hdfs",
+        "user": "hadoop",
         "group": "hadoop"
       }
     }
@@ -702,18 +702,6 @@
       "configurableInWizard": true,
       "hidden": false,
       "defaultValue": ""
-    },
-    {
-      "name": "dfs.namenode.checkpoint.dir",
-      "label": "元数据checkpoint目录",
-      "description": "配置元数据checkpoint目录，当namenode故障退出需要重新恢复时，可以从secondary namenode的工作目录中将fsimage拷贝到namenode的工作目录，以恢复namenode的元数据",
-      "configType": "path",
-      "required": true,
-      "type": "input",
-      "value": "",
-      "configurableInWizard": true,
-      "hidden": false,
-      "defaultValue": "/data/hdfs/checkpoint"
     },
     {
       "name": "dfs.blocksize",
