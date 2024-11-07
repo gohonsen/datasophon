@@ -31,13 +31,19 @@ public class JournalNodeHandlerStrategy implements ServiceRoleStrategy {
     @Override
     public void handler(Integer clusterId, List<String> hosts, String serviceName) {
         Map<String, String> globalVariables = GlobalVariables.get(clusterId);
-        if (hosts.size() >= 3) {
-            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode1}",
-                    hosts.get(0));
-            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode2}",
-                    hosts.get(1));
-            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode3}",
-                    hosts.get(2));
+//        if (hosts.size() >= 3) {
+//            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode1}",
+//                    hosts.get(0));
+//            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode2}",
+//                    hosts.get(1));
+//            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode3}",
+//                    hosts.get(2));
+//        }
+        // 适配 JN 节点超过3个的情况
+        for (int i=0; i<hosts.size() ; i++){
+            int jnIndex = i+1;
+            ProcessUtils.generateClusterVariable(globalVariables, clusterId, serviceName, "${journalNode"+jnIndex+"}",
+                    hosts.get(i));
         }
     }
     
